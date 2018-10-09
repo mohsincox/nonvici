@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::auth();
 
@@ -39,4 +39,12 @@ Route::group(['middleware' => 'usersession'], function () {
 	Route::get('/user', 'UserController@index');
 	Route::get('/user/create', 'UserController@create');
 	Route::post('/user', 'UserController@store');
+
+    Route::get('/lead/create', 'LeadController@create');
+    Route::post('/lead', 'LeadController@store');
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
 });
